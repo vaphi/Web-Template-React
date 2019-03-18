@@ -58,6 +58,10 @@ app.post("/login", (req, res) => {
 		*/
 
 // API Routes
+app.get("/api/message", passport.authenticate('jwt', {session: false}), (req, res) => {
+	res.json({ message: "Hello World"});
+})
+
 app.get("/api/test", passport.authenticate('jwt', { session: false }), (req, res) => {
 	res.send("it's working!!");
 })
